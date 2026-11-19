@@ -1,0 +1,11 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
+
+export default function Navbar({ onMenuClick }) {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  function handleLogout() { logout(); navigate("/login", { replace: true }); }
+  return <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl"><div className="flex h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8"><div className="flex items-center gap-3"><button onClick={onMenuClick} className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 lg:hidden" aria-label="Open navigation">☰</button><Link to="/" className="flex items-center gap-2.5"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 text-xl font-black text-white shadow-md shadow-violet-200">L</span><span className="text-xl font-extrabold tracking-tight text-slate-950">Link<span className="text-violet-600">Nest</span><span className="ml-2 hidden text-xs font-medium text-slate-400 sm:inline">YOUR KNOWLEDGE SPACE</span></span></Link></div><div className="flex items-center gap-3"><Link to="/bookmarks/new" className="hidden rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-700 sm:inline-flex">＋ Add bookmark</Link><button onClick={() => setMenuOpen((v) => !v)} className="flex items-center gap-2 rounded-full border border-slate-200 p-1.5 pr-3 hover:bg-slate-50"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">{user?.username?.charAt(0)?.toUpperCase() || "U"}</span><span className="hidden max-w-28 truncate text-sm font-semibold text-slate-700 sm:block">{user?.username}</span><span className="text-xs text-slate-400">⌄</span></button>{menuOpen && <div className="absolute right-5 top-[62px] w-44 rounded-xl border border-slate-200 bg-white p-2 shadow-xl"><p className="truncate px-3 py-2 text-xs text-slate-500">{user?.email}</p><button onClick={handleLogout} className="w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-rose-600 hover:bg-rose-50">Log out</button></div>}</div></div></header>;
+}

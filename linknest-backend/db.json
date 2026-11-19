@@ -1,0 +1,155 @@
+{
+  "users": [
+    {
+      "id": "demo-user",
+      "username": "Demo User",
+      "email": "demo@linknest.dev",
+      "password": "LinkNest123!",
+      "createdAt": "2026-10-29T08:00:00.000Z"
+    },
+    {
+      "username": "Vinod",
+      "email": "vinod@gmail.com",
+      "password": "vinod123",
+      "createdAt": "2026-10-29T03:38:50.667Z",
+      "id": "1gbDkK5iXVA"
+    }
+  ],
+  "bookmarks": [
+    {
+      "id": "demo-react-docs",
+      "ownerId": "demo-user",
+      "title": "React Documentation",
+      "url": "https://react.dev/",
+      "description": "The official guide to building user interfaces with React, including hooks, components, and state management.",
+      "category": "Programming",
+      "tags": [
+        "React",
+        "JavaScript",
+        "Frontend"
+      ],
+      "collectionId": "demo-web-dev",
+      "favorite": true,
+      "status": "unread",
+      "createdAt": "2026-10-27T09:30:00.000Z"
+    },
+    {
+      "id": "demo-mdn-js",
+      "ownerId": "demo-user",
+      "title": "MDN JavaScript Guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "description": "A detailed guide to JavaScript language fundamentals, from functions to objects and classes.",
+      "category": "Programming",
+      "tags": [
+        "JavaScript",
+        "Web",
+        "Reference"
+      ],
+      "collectionId": "demo-web-dev",
+      "favorite": false,
+      "status": "unread",
+      "createdAt": "2026-10-28T11:00:00.000Z"
+    },
+    {
+      "id": "demo-git",
+      "ownerId": "demo-user",
+      "title": "Git Handbook",
+      "url": "https://guides.github.com/introduction/git-handbook/",
+      "description": "A quick introduction to version control and the Git workflow used by developers.",
+      "category": "Developer Tools",
+      "tags": [
+        "Git",
+        "GitHub",
+        "Tools"
+      ],
+      "collectionId": "demo-tools",
+      "favorite": true,
+      "status": "completed",
+      "createdAt": "2026-10-26T08:00:00.000Z"
+    },
+    {
+      "id": "demo-tailwind",
+      "ownerId": "demo-user",
+      "title": "Tailwind CSS Documentation",
+      "url": "https://tailwindcss.com/docs",
+      "description": "Learn utility-first styling and responsive design with Tailwind CSS.",
+      "category": "Design & UI",
+      "tags": [
+        "CSS",
+        "Tailwind",
+        "Frontend"
+      ],
+      "collectionId": "demo-web-dev",
+      "favorite": false,
+      "status": "unread",
+      "createdAt": "2026-10-28T14:00:00.000Z"
+    },
+    {
+      "id": "demo-jobs",
+      "ownerId": "demo-user",
+      "title": "Java Developer Roadmap",
+      "url": "https://roadmap.sh/java",
+      "description": "A visual learning path covering the core topics and tools in the Java ecosystem.",
+      "category": "Career",
+      "tags": [
+        "Java",
+        "Backend",
+        "Learning"
+      ],
+      "collectionId": "demo-career",
+      "favorite": false,
+      "status": "reading",
+      "createdAt": "2026-10-25T10:00:00.000Z"
+    },
+    {
+      "title": "React Tutorial",
+      "url": "https://react.dev/learn",
+      "description": "React Learn",
+      "category": "webTech",
+      "tags": [
+        "React"
+      ],
+      "collectionId": "HYRoQNm2V4s",
+      "status": "reading",
+      "favorite": true,
+      "ownerId": "1gbDkK5iXVA",
+      "createdAt": "2026-10-29T03:41:20.601Z",
+      "id": "RUZvmJz3R44"
+    }
+  ],
+  "collections": [
+    {
+      "id": "demo-web-dev",
+      "ownerId": "demo-user",
+      "name": "Web Development",
+      "description": "React, JavaScript, CSS, and frontend resources.",
+      "color": "violet",
+      "createdAt": "2026-10-25T08:00:00.000Z"
+    },
+    {
+      "id": "demo-tools",
+      "ownerId": "demo-user",
+      "name": "Developer Tools",
+      "description": "Tools and workflows that make development easier.",
+      "color": "violet",
+      "createdAt": "2026-10-25T08:10:00.000Z"
+    },
+    {
+      "id": "demo-career",
+      "ownerId": "demo-user",
+      "name": "Career Growth",
+      "description": "Roadmaps and useful career resources.",
+      "color": "violet",
+      "createdAt": "2026-10-25T08:20:00.000Z"
+    },
+    {
+      "name": "Java Full Stack",
+      "description": "Java Full Stack resources",
+      "color": "violet",
+      "ownerId": "1gbDkK5iXVA",
+      "createdAt": "2026-10-29T03:43:40.030Z",
+      "id": "HYRoQNm2V4s"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

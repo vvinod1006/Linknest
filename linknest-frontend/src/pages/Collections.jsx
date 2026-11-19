@@ -1,0 +1,13 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import PageHeader from "../components/common/PageHeader";
+import CollectionCard from "../components/collections/CollectionCard";
+import CollectionForm from "../components/collections/CollectionForm";
+import EmptyState from "../components/common/EmptyState";
+import { useCollections } from "../context/CollectionContext";
+import { useBookmarks } from "../context/BookmarkContext";
+export default function Collections() { const { collections, addCollection, updateCollection, deleteCollection } = useCollections(); const { bookmarks } = useBookmarks(); const [editing, setEditing] = useState(null); const [showForm, setShowForm] = useState(false); const [busy, setBusy] = useState(false);
+ async function save(data) { setBusy(true); try { if (editing) { await updateCollection(editing.id,data); toast.success("Collection updated"); } else { await addCollection(data); toast.success("Collection created"); } setEditing(null); setShowForm(false); } finally { setBusy(false); } }
+ async function remove(item) { if (!window.confirm(`Delete collection “${item.name}”? Its bookmarks will be kept without a collection.`)) return; try { await deleteCollection(item.id); toast.success("Collection deleted"); } catch { toast.error("Could not delete collection."); } }
+ return <><PageHeader eyebrow="Organize your knowledge" title="Collections" description="Group related links into focused spaces for learning and discovery." action={<button onClick={() => { setEditing(null); setShowForm(true); }} className="rounded-xl bg-violet-600 px-4 py-3 text-sm font-bold text-white hover:bg-violet-700">＋ New collection</button>}/>{showForm && <div className="mb-6 rounded-2xl border border-violet-100 bg-white p-5 shadow-sm sm:p-7"><div className="mb-5"><h2 className="text-lg font-bold">{editing ? "Edit collection" : "Create a collection"}</h2><p className="mt-1 text-sm text-slate-500">Give related resources a home.</p></div><CollectionForm initialData={editing} onSave={save} onCancel={() => { setShowForm(false); setEditing(null); }}/></div>}{collections.length === 0 && !showForm ? <EmptyState title="Create your first collection" description="Collections help group links by topic, project, or learning goal." action={false}/> : <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{collections.map((item) => <CollectionCard key={item.id} collection={item} count={bookmarks.filter((b) => String(b.collectionId || "") === String(item.id)).length} onEdit={(item) => { setEditing(item); setShowForm(true); }} onDelete={remove}/>)}</div>}{busy && <p className="mt-4 text-sm text-slate-400">Saving collection...</p>}</>;
+}
